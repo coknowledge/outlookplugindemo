@@ -23,7 +23,7 @@
     <FormSettings>
         <Form xsi:type="ItemEdit">
             <DesktopSettings>
-                <SourceLocation DefaultValue="https://github.com/coknowledge/outlookplugindemo/blob/main/index.html"/>
+                <SourceLocation DefaultValue="https://coknowledge.github.io/outlookplugindemo/index.html"/>
             </DesktopSettings>
         </Form>
     </FormSettings>
