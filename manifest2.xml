@@ -21,7 +21,14 @@
   </Requirements>
 
   <Permissions>Restricted</Permissions>
-
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://coknowledge.github.io/outlookplugindemo/index.html"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="VersionOverridesV1_0">
     <Hosts>
       <Host xsi:type="Mailbox">
