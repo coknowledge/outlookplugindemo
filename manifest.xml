@@ -9,8 +9,8 @@
     <DefaultLocale>en-US</DefaultLocale>
     <DisplayName DefaultValue="DEMO URL"/>
     <Description DefaultValue="Adds a DEMO URL button to calendar events"/>
-    <IconUrl DefaultValue="https://www.coknowledge.nl/favicon.ico"/>
-    <HighResolutionIconUrl DefaultValue="https://www.coknowledge.nl/favicon.ico"/>
+    <IconUrl DefaultValue="https://coknowledge.github.io/outlookplugindemo/icon-32.png"/>
+    <HighResolutionIconUrl DefaultValue="https://coknowledge.github.io/outlookplugindemo/icon-64.png"/>
     <SupportUrl DefaultValue="https://www.coknowledge.nl"/>
     <Hosts>
         <Host Name="Mailbox"/>
