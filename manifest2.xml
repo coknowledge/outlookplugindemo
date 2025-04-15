@@ -47,7 +47,6 @@
                   <Icon>
                     <bt:Image size="16" resid="icon16"/>
                     <bt:Image size="32" resid="icon32"/>
-                    <bt:Image size="80" resid="icon80"/>
                   </Icon>
                   <Action xsi:type="ExecuteFunction">
                     <FunctionName>openCoKnowledge</FunctionName>
@@ -64,7 +63,6 @@
       <bt:Images>
         <bt:Image id="icon16" DefaultValue="https://coknowledge.github.io/outlookplugindemo/icon16.png"/>
         <bt:Image id="icon32" DefaultValue="https://coknowledge.github.io/outlookplugindemo/icon32.png"/>
-        <bt:Image id="icon80" DefaultValue="https://coknowledge.github.io/outlookplugindemo/icon80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="functionFileUrl" DefaultValue="https://coknowledge.github.io/outlookplugindemo/function.html"/>
