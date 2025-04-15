@@ -1,34 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OfficeApp
-    xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:type="MailApp">
-    <Id>8e7b3479-9ac4-4eab-a20c-91dc41a8ca81</Id>
-    <Version>1.0.0</Version>
-    <ProviderName>DEMO URL</ProviderName>
-    <DefaultLocale>en-US</DefaultLocale>
-    <DisplayName DefaultValue="DEMO URL"/>
-    <Description DefaultValue="Adds a DEMO URL button to calendar events"/>
-    <IconUrl DefaultValue="https://coknowledge.github.io/outlookplugindemo/icon-32.png"/>
-    <HighResolutionIconUrl DefaultValue="https://coknowledge.github.io/outlookplugindemo/icon-64.png"/>
-    <SupportUrl DefaultValue="https://www.coknowledge.nl"/>
-    <Hosts>
-        <Host Name="Mailbox"/>
-    </Hosts>
-    <Requirements>
-        <Sets>
-            <Set Name="Mailbox" MinVersion="1.1"/>
-        </Sets>
-    </Requirements>
-    <FormSettings>
-        <Form xsi:type="ItemEdit">
-            <DesktopSettings>
-                <SourceLocation DefaultValue="https://coknowledge.github.io/outlookplugindemo/index.html"/>
-            </DesktopSettings>
-        </Form>
-    </FormSettings>
-    <Permissions>ReadWriteItem</Permissions>
-    <Rule xsi:type="RuleCollection" Mode="Or">
-        <Rule xsi:type="ItemIs" ItemType="Appointment"/>
-    </Rule>
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+  xsi:type="MailApp">
+  
+  <!-- Core Identification -->
+  <Id>c12e8f33-2b74-4b6a-9f70-934d5a123456</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Contoso</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  
+  <!-- Display Metadata -->
+  <DisplayName DefaultValue="Outlook Plugin Demo"/>
+  <Description DefaultValue="Sample add-in demonstrating manifest structure"/>
+  
+  <!-- Icon Configuration -->
+  <IconUrl DefaultValue="https://coknowledge.github.io/outlookplugindemo/assets/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://coknowledge.github.io/outlookplugindemo/assets/icon-64.png"/>
+  
+  <!-- Runtime Settings -->
+  <SupportUrl DefaultValue="https://support.contoso.com"/>
+  <AppDomains>
+    <AppDomain>https://coknowledge.github.io</AppDomain>
+  </AppDomains>
+  
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+  
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://coknowledge.github.io/outlookplugindemo/read.html"/>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
+  <!-- Version Overrides for Modern Features -->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements>
+        <bt:Sets>
+          <bt:Set Name="Mailbox" MinVersion="1.5"/>
+        </bt:Sets>
+      </Requirements>
+      
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <FunctionFile resid="Commands"/>
+            <ExtensionPoint xsi:type="MessageReadCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="msgReadGroup">
+                  <Label resid="GroupLabel"/>
+                  <Control xsi:type="Button" id="btnOpenPane">
+                    <Label resid="TaskPaneButton.Label"/>
+                    <Supertip>
+                      <Title resid="TaskPaneButton.Title"/>
+                      <Description resid="TaskPaneButton.Tooltip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon16"/>
+                      <bt:Image size="32" resid="Icon32"/>
+                      <bt:Image size="80" resid="Icon80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="TaskPaneURL"/>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon16" DefaultValue="https://coknowledge.github.io/outlookplugindemo/assets/icon-64.png"/>
+          <bt:Image id="Icon32" DefaultValue="https://coknowledge.github.io/outlookplugindemo/assets/icon-64.png"/>
+          <bt:Image id="Icon80" DefaultValue="https://coknowledge.github.io/outlookplugindemo/assets/icon-64.png"/>
+        </bt:Images>
+        
+        <bt:Urls>
+          <bt:Url id="Commands" DefaultValue="https://coknowledge.github.io/outlookplugindemo/commands.html"/>
+          <bt:Url id="TaskPaneURL" DefaultValue="https://coknowledge.github.io/outlookplugindemo/taskpane.html"/>
+        </bt:Urls>
+        
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Demo Add-in"/>
+          <bt:String id="TaskPaneButton.Label" DefaultValue="Open Panel"/>
+          <bt:String id="TaskPaneButton.Title" DefaultValue="Show Demo Panel"/>
+        </bt:ShortStrings>
+        
+        <bt:LongStrings>
+          <bt:String id="TaskPaneButton.Tooltip" DefaultValue="Click to open the demonstration task pane"/>
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
 </OfficeApp>
